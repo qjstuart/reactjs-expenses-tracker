@@ -1,7 +1,7 @@
 import "./ExpenseForm.css";
 import { useState } from "react";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -20,12 +20,12 @@ const ExpenseForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault(); // prevent default behaviour of page reload on form submission
-    const newExpense = {
+    const newExpenseItem = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: Number(enteredAmount),
       date: new Date(enteredDate),
     };
-    console.log(newExpense);
+    props.onSubmitExpenseForm(newExpenseItem);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
@@ -57,7 +57,7 @@ const ExpenseForm = () => {
           <input
             type="date"
             value={enteredDate}
-            min="2023-01-01"
+            min="2022-01-01"
             max="2023-12-31"
             onChange={dateChangeHandler}
           />
