@@ -1,6 +1,6 @@
 import ExpensesList from "./components/Expenses/ExpensesList";
 import NewExpenseItem from "./components/NewExpense/NewExpenseItem";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const startingExpenses = [
   {
@@ -25,7 +25,7 @@ const startingExpenses = [
     id: "e4",
     title: "Samsung T7 Shield SSD",
     amount: 99.0,
-    date: new Date(2023, 1, 28),
+    date: new Date(2022, 1, 28),
   },
 ];
 
